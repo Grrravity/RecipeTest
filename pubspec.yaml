@@ -1,5 +1,5 @@
-name: botest
-description: A new Flutter project.
+name: pancakeapp
+description: A recipe app.
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `pub publish`. This is preferred for private packages.
@@ -45,7 +45,20 @@ flutter:
   uses-material-design: true
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/white-logo-blue-120x42.png
+    - assets/avatar/avatar-unsplash.png
+    - assets/avatar/avatar-unsplash@2x.png
+    - assets/avatar/avatar-unsplash@3x.png
+    - assets/pictures/pancake.png
+    - assets/pictures/pancake@2x.png
+    - assets/pictures/pancake@3x.png
+    - assets/icons/book-2.svg
+    - assets/icons/calories.svg
+    - assets/icons/dashboard.svg
+    - assets/icons/heart.svg
+    - assets/icons/kettlebell.svg
+    - assets/icons/new_recipe.svg
+    - assets/icons/timer.svg
+    - assets/logos/pancakeapp.png
   #   - images/a_dot_ham.jpeg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

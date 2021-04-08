@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
-import 'package:botest/core/utils/converter.dart';
+import 'package:pancakeapp/core/utils/converter.dart';
 
 import 'bloc.dart';
 
@@ -10,16 +10,16 @@ const String CACHE_FAILURE_MESSAGE = 'Local Failure';
 const String INVALID_DATA_FAILURE_MESSAGE =
     'Login Error - information provided cannot grant you access';
 
-class BodyOBloc extends Bloc<BodyOEvent, BodyOState> {
+class PancakeBloc extends Bloc<PancakeEvent, PancakeState> {
   final Converter converter;
 
-  BodyOBloc({
+  PancakeBloc({
     required this.converter,
   }) : super(Loaded());
 
   @override
-  Stream<BodyOState> mapEventToState(
-    BodyOEvent event,
+  Stream<PancakeState> mapEventToState(
+    PancakeEvent event,
   ) async* {
     if (event is LoginPressed) {
       final random = converter.stringToUnsignedInt(event.numberString);

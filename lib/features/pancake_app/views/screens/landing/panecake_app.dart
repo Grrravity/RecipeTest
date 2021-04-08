@@ -1,17 +1,17 @@
-import 'package:botest/features/bo_app/views/bloc/bobloc_bloc/bloc.dart';
-import 'package:botest/features/bo_app/views/components/landing.dart';
-import 'package:botest/features/bo_app/views/screens/landing/landing_responsive.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pancakeapp/features/pancake_app/views/bloc/pancake_bloc/bloc.dart';
+import 'package:pancakeapp/features/pancake_app/views/components/landing.dart';
+import 'package:pancakeapp/features/pancake_app/views/screens/landing/landing_responsive.dart';
 
 import '../../../../../injection_container.dart';
 
-class BoLanding extends StatelessWidget {
+class PancakeLanding extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('BodyO app'),
+        title: Text('Pancake app'),
       ),
       body: SingleChildScrollView(
         child: buildBody(context),
@@ -19,13 +19,13 @@ class BoLanding extends StatelessWidget {
     );
   }
 
-  BlocProvider<BodyOBloc> buildBody(BuildContext context) {
+  BlocProvider<PancakeBloc> buildBody(BuildContext context) {
     return BlocProvider(
-      create: (_) => sl<BodyOBloc>(),
+      create: (_) => sl<PancakeBloc>(),
       child: Container(
         alignment: Alignment.center,
         padding: EdgeInsets.all(10.0),
-        child: BlocBuilder<BodyOBloc, BodyOState>(
+        child: BlocBuilder<PancakeBloc, PancakeState>(
           builder: (context, state) {
             if (state is Loading) {
               return LoadingWidget();

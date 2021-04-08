@@ -1,8 +1,8 @@
 import 'dart:math';
 
-import 'package:botest/features/bo_app/views/bloc/bobloc_bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pancakeapp/features/pancake_app/views/bloc/pancake_bloc/bloc.dart';
 
 class LoginButtons extends StatefulWidget {
   LoginButtons({Key? key}) : super(key: key);
@@ -49,10 +49,10 @@ class _LoginButtonsState extends State<LoginButtons> {
     String getRandomString(int length) =>
         String.fromCharCodes(Iterable.generate(
             length, (_) => _chars.codeUnitAt(_rnd.nextInt(_chars.length))));
-    BlocProvider.of<BodyOBloc>(context).add(LoginPressed(getRandomString(1)));
+    BlocProvider.of<PancakeBloc>(context).add(LoginPressed(getRandomString(1)));
   }
 
   _logout() {
-    BlocProvider.of<BodyOBloc>(context).add(LogoutPressed());
+    BlocProvider.of<PancakeBloc>(context).add(LogoutPressed());
   }
 }

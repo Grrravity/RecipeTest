@@ -2,16 +2,16 @@ import 'package:equatable/equatable.dart';
 import 'package:meta/meta.dart';
 
 @immutable
-abstract class BodyOState extends Equatable {
+abstract class PancakeState extends Equatable {
   @override
   List<Object> get props => [];
 }
 
-class Loading extends BodyOState {}
+class Loading extends PancakeState {}
 
-class Loaded extends BodyOState {}
+class Loaded extends PancakeState {}
 
-class Error extends BodyOState {
+class Error extends PancakeState {
   final String message;
 
   Error({required this.message});

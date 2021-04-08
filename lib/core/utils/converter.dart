@@ -1,5 +1,5 @@
-import 'package:botest/core/error/failure.dart';
 import 'package:dartz/dartz.dart';
+import 'package:pancakeapp/core/error/failure.dart';
 
 class Converter {
   Either<Failure, int> stringToUnsignedInt(String str) {

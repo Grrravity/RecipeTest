@@ -1,6 +1,6 @@
-import 'package:botest/features/bo_app/views/bloc/bobloc_bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pancakeapp/features/pancake_app/views/bloc/pancake_bloc/bloc.dart';
 
 class ErrorView extends StatefulWidget {
   final String message;
@@ -37,6 +37,6 @@ class _ErrorViewState extends State<ErrorView> {
   }
 
   _refresh() {
-    BlocProvider.of<BodyOBloc>(context).add(RefreshPressed());
+    BlocProvider.of<PancakeBloc>(context).add(RefreshPressed());
   }
 }

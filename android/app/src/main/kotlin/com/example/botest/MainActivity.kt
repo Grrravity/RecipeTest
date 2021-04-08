@@ -1,4 +1,4 @@
-package com.example.botest
+package com.example.pancakeapp
 
 import io.flutter.embedding.android.FlutterActivity
 

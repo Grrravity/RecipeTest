@@ -2,12 +2,12 @@ import 'package:equatable/equatable.dart';
 import 'package:meta/meta.dart';
 
 @immutable
-abstract class BodyOEvent extends Equatable {
+abstract class PancakeEvent extends Equatable {
   @override
   List<Object> get props => [];
 }
 
-class LoginPressed extends BodyOEvent {
+class LoginPressed extends PancakeEvent {
   final String numberString;
 
   LoginPressed(this.numberString);
@@ -16,6 +16,6 @@ class LoginPressed extends BodyOEvent {
   List<Object> get props => [numberString];
 }
 
-class LogoutPressed extends BodyOEvent {}
+class LogoutPressed extends PancakeEvent {}
 
-class RefreshPressed extends BodyOEvent {}
+class RefreshPressed extends PancakeEvent {}

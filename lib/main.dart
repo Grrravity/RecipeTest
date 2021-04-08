@@ -1,6 +1,6 @@
-import 'package:botest/features/bo_app/views/screens/landing/bo_app.dart';
 import 'package:flutter/material.dart';
 
+import 'features/pancake_app/views/screens/landing/panecake_app.dart';
 import 'injection_container.dart' as inj;
 
 void main() async {
@@ -18,6 +18,6 @@ class BoApp extends StatelessWidget {
           primaryColor: Colors.green.shade800,
           accentColor: Colors.green.shade600,
         ),
-        home: BoLanding());
+        home: PancakeLanding());
   }
 }
