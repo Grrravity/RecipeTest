@@ -46,11 +46,7 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/avatar/avatar-unsplash.png
-    - assets/avatar/avatar-unsplash@2x.png
-    - assets/avatar/avatar-unsplash@3x.png
     - assets/pictures/pancake.png
-    - assets/pictures/pancake@2x.png
-    - assets/pictures/pancake@3x.png
     - assets/icons/book-2.svg
     - assets/icons/calories.svg
     - assets/icons/dashboard.svg
