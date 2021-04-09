@@ -15,29 +15,19 @@ class PancakeBloc extends Bloc<PancakeEvent, PancakeState> {
 
   PancakeBloc({
     required this.converter,
-  }) : super(Loaded());
+  }) : super(Creating());
 
   @override
   Stream<PancakeState> mapEventToState(
     PancakeEvent event,
   ) async* {
-    if (event is LoginPressed) {
-      final random = converter.stringToUnsignedInt(event.numberString);
-
-      yield* random.fold((failure) async* {
-        yield Error(message: INVALID_DATA_FAILURE_MESSAGE);
-      }, (integer) async* {
-        yield Loading();
-        await Future.delayed(Duration(seconds: 2));
-        yield Loaded();
-      });
-    }
-    if (event is LogoutPressed) {
+    if (event is ViewCreation) {
       yield Loading();
-      await Future.delayed(Duration(seconds: 1));
+      await Future.delayed(Duration(seconds: 2));
       yield Loaded();
     }
-
+    if (event is BackPressed) {}
+    if (event is MenuPressed) {}
     if (event is RefreshPressed) {
       yield Loaded();
     }

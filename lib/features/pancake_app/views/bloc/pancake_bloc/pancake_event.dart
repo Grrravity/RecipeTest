@@ -7,15 +7,10 @@ abstract class PancakeEvent extends Equatable {
   List<Object> get props => [];
 }
 
-class LoginPressed extends PancakeEvent {
-  final String numberString;
+class BackPressed extends PancakeEvent {}
 
-  LoginPressed(this.numberString);
-
-  @override
-  List<Object> get props => [numberString];
-}
-
-class LogoutPressed extends PancakeEvent {}
+class MenuPressed extends PancakeEvent {}
 
 class RefreshPressed extends PancakeEvent {}
+
+class ViewCreation extends PancakeEvent {}

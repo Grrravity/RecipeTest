@@ -7,6 +7,8 @@ abstract class PancakeState extends Equatable {
   List<Object> get props => [];
 }
 
+class Creating extends PancakeState {}
+
 class Loading extends PancakeState {}
 
 class Loaded extends PancakeState {}
