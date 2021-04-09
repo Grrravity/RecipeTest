@@ -22,9 +22,9 @@ class RecipeViewState extends State<RecipeView> {
                   child: RecipePictureWidget(
                       imagePath: 'assets/pictures/pancake.png'))),
           DraggableScrollableSheet(
-            initialChildSize: 0.60,
+            initialChildSize: 0.62,
             maxChildSize: 0.9,
-            minChildSize: 0.60,
+            minChildSize: 0.62,
             builder: (BuildContext context, myscrollController) {
               return Container(
                 child: SingleChildScrollView(

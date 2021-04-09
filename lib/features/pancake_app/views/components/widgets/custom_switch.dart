@@ -13,8 +13,6 @@ class CustomSwitch extends StatefulWidget {
 
 class _CustomSwitchState extends State<CustomSwitch>
     with SingleTickerProviderStateMixin {
-  late AnimationController _animationController;
-
   bool ended = true;
   final TextStyle focusTextStyle = TextStyle(
     fontFamily: "SSN-Medium",
@@ -25,8 +23,6 @@ class _CustomSwitchState extends State<CustomSwitch>
   @override
   void initState() {
     super.initState();
-    _animationController =
-        AnimationController(vsync: this, duration: Duration(seconds: 400));
   }
 
   @override
