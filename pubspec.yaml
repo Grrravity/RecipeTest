@@ -29,6 +29,7 @@ dependencies:
   flutter_bloc: ^7.0.0
   get_it: ^6.0.0
   internet_connection_checker: ^0.0.1
+  flutter_svg: ^0.21.0+1
 
 dev_dependencies:
   flutter_test:
