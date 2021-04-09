@@ -12,6 +12,7 @@ class DataInput extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        //FIXME : SVG workaround for web
         SvgPicture.asset(
           asset,
           semanticsLabel: asset.substring(12),
