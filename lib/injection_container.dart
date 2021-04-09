@@ -4,6 +4,7 @@ import 'package:pancakeapp/features/pancake_app/views/bloc/pancake_bloc/pancake_
 
 import 'core/network/network_info.dart';
 import 'core/utils/converter.dart';
+import 'core/utils/theme.dart';
 
 final sl = GetIt.instance;
 
@@ -15,6 +16,7 @@ Future<void> init() async {
   // Core
   sl.registerLazySingleton(() => Converter());
   sl.registerLazySingleton<NetworkInfo>(() => NetworkInfoImpl(sl()));
+  sl.registerLazySingleton(() => MyTheme());
   //! External
   sl.registerLazySingleton(() => InternetConnectionChecker());
 }

@@ -24,24 +24,27 @@ class DetailWidget extends StatelessWidget {
                 padding: const EdgeInsets.only(bottom: 23),
                 child: Text(
                   "Colorful pancakes",
-                  style: TextStyle(fontSize: 33),
+                  style: Theme.of(context).textTheme.headline4,
                 ),
               )),
         ),
         Container(
           height: 100,
-          color: Colors.pink,
-          child:
-              Text("85 likes 451 kcal 19 mins", style: TextStyle(fontSize: 30)),
+          color: Colors.white,
+          child: Text("85 likes 451 kcal 19 mins",
+              style: Theme.of(context).textTheme.headline5),
         ),
         Container(
           height: 100,
-          color: Colors.pink,
-          child:
-              Text("Instruction / Ingredients", style: TextStyle(fontSize: 33)),
+          color: Colors.white,
+          child: Text("Instruction / Ingredients",
+              style: Theme.of(context).textTheme.button),
         ),
         Container(
-            height: 220, color: Colors.red, child: Text("recipe content")),
+            height: 220,
+            color: Colors.white,
+            child: Text("recipe content",
+                style: Theme.of(context).textTheme.bodyText1)),
       ],
     );
   }
