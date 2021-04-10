@@ -35,11 +35,6 @@ class SvgAsPaint extends StatelessWidget {
           size: Size(size ?? 22, (size ?? 22 * 1.2117746717492588).toDouble()),
           painter: KettlebellCustomPainter(),
         );
-      case "assets/icons/new_recipe.svg":
-        return CustomPaint(
-          size: Size(size ?? 22, size ?? 22),
-          painter: NewRecipeCustomPainter(),
-        );
       case "assets/icons/timer.svg":
         return CustomPaint(
           size: Size((22 / 1.172825707300035).toDouble(), 22),

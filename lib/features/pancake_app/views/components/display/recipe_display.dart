@@ -134,10 +134,11 @@ class RecipeViewState extends State<RecipeView> {
                                                 .substring(12),
                                         fit: BoxFit.contain,
                                       )
-                                    : Align(
-                                        child: SvgAsPaint(
-                                            asset:
-                                                "assets/icons/new_recipe.svg")),
+                                    : Image.asset(
+                                        "assets/icons/new_recipe.png",
+                                        width: 52,
+                                        fit: BoxFit.fill,
+                                      ),
                               ]),
                         ),
                         Container(
@@ -155,7 +156,8 @@ class RecipeViewState extends State<RecipeView> {
                                       )
                                     : Align(
                                         child: SvgAsPaint(
-                                            asset: "assets/icons/book-2.svg")),
+                                        asset: "assets/icons/book-2.svg",
+                                      )),
                                 SizedBox(
                                   height: 5,
                                 ),

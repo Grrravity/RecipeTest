@@ -54,6 +54,7 @@ flutter:
     - assets/icons/heart.svg
     - assets/icons/kettlebell.svg
     - assets/icons/new_recipe.svg
+    - assets/icons/new_recipe.png
     - assets/icons/timer.svg
     - assets/logos/pancakeapp.png
   #   - images/a_dot_ham.jpeg

@@ -50,7 +50,7 @@ class BrokenCustomPainter extends CustomPainter {
     path_1.close();
 
     Paint paint1Fill = Paint()..style = PaintingStyle.fill;
-    paint1Fill.color = Color(0xff000000).withOpacity(1.0);
+    paint1Fill.color = Color(0xff838dab).withOpacity(1.0);
     canvas.drawPath(path_1, paint1Fill);
   }
 
