@@ -63,17 +63,24 @@ class _DetailWidgetState extends State<DetailWidget> {
                   ],
                 ),
               ),
-              CustomSwitch(
-                value: _enabled,
-                onChanged: (bool val) {
-                  setState(() {
-                    _enabled = val;
-                  });
-                },
-              ),
               Container(
-                  child: Text("recipe content",
-                      style: Theme.of(context).textTheme.bodyText1)),
+                padding: EdgeInsets.fromLTRB(45, 0, 35, 45),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    CustomSwitch(
+                      value: _enabled,
+                      onChanged: (bool val) {
+                        setState(() {
+                          _enabled = val;
+                        });
+                      },
+                    ),
+                    !_enabled ? StepWidget() : ListWidget(),
+                  ],
+                ),
+              ),
             ],
           ),
         ),

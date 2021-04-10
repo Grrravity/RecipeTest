@@ -36,54 +36,58 @@ class _CustomSwitchState extends State<CustomSwitch>
               : widget.onChanged(false);
         }
       },
-      child: Container(
-        width: 311,
-        height: 49,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(25.0),
-          color: Color(0xFFF0F0F0),
-        ),
-        child: Stack(children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 3, vertical: 3),
-            child: AnimatedAlign(
-              alignment:
-                  widget.value ? Alignment.centerRight : Alignment.centerLeft,
-              duration: Duration(milliseconds: 400),
-              curve: Curves.decelerate,
-              onEnd: () {
-                ended = true;
-              },
-              child: Container(
-                width: 153,
-                height: 43,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(22.0),
-                    color: Colors.white),
+      child: Padding(
+        padding: const EdgeInsets.only(bottom: 13),
+        child: Container(
+          margin: const EdgeInsets.symmetric(horizontal: 15),
+          width: 311,
+          height: 49,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(25.0),
+            color: Color(0xFFF0F0F0),
+          ),
+          child: Stack(children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 3, vertical: 3),
+              child: AnimatedAlign(
+                alignment:
+                    widget.value ? Alignment.centerRight : Alignment.centerLeft,
+                duration: Duration(milliseconds: 400),
+                curve: Curves.decelerate,
+                onEnd: () {
+                  ended = true;
+                },
+                child: Container(
+                  width: 153,
+                  height: 43,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(22.0),
+                      color: Colors.white),
+                ),
               ),
             ),
-          ),
-          Align(
-            alignment: Alignment.center,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Text(
-                  "Instruction",
-                  style: widget.value
-                      ? Theme.of(context).textTheme.button
-                      : focusTextStyle,
-                ),
-                Text(
-                  "Ingredients",
-                  style: !widget.value
-                      ? Theme.of(context).textTheme.button
-                      : focusTextStyle,
-                ),
-              ],
-            ),
-          )
-        ]),
+            Align(
+              alignment: Alignment.center,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Text(
+                    "Instruction",
+                    style: widget.value
+                        ? Theme.of(context).textTheme.button
+                        : focusTextStyle,
+                  ),
+                  Text(
+                    "Ingredients",
+                    style: !widget.value
+                        ? Theme.of(context).textTheme.button
+                        : focusTextStyle,
+                  ),
+                ],
+              ),
+            )
+          ]),
+        ),
       ),
     );
   }
