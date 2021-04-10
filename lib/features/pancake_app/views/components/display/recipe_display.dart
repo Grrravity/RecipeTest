@@ -65,109 +65,125 @@ class RecipeViewState extends State<RecipeView> {
                 Container(
                   height: 93,
                   color: Colors.white,
-                  padding: EdgeInsets.only(bottom: 29),
+                  padding: EdgeInsets.fromLTRB(10, 0, 10, 29),
                   child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
-                        Column(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              !kIsWeb
-                                  ? SvgPicture.asset(
-                                      "assets/icons/dashboard.svg",
-                                      semanticsLabel:
-                                          "assets/icons/dashboard.svg"
-                                              .substring(12),
-                                      fit: BoxFit.contain,
-                                    )
-                                  : Align(
-                                      child: SvgAsPaint(
-                                          asset: "assets/icons/dashboard.svg")),
-                              SizedBox(
-                                height: 5,
-                              ),
-                              Text(
-                                "data",
-                                style: Theme.of(context).textTheme.caption,
-                              )
-                            ]),
-                        Column(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              !kIsWeb
-                                  ? SvgPicture.asset(
-                                      "assets/icons/kettlebell.svg",
-                                      semanticsLabel:
-                                          "assets/icons/kettlebell.svg"
-                                              .substring(12),
-                                      fit: BoxFit.contain,
-                                    )
-                                  : Align(
-                                      child: SvgAsPaint(
-                                          asset:
-                                              "assets/icons/kettlebell.svg")),
-                              SizedBox(
-                                height: 5,
-                              ),
-                              Text(
-                                "data",
-                                style: Theme.of(context).textTheme.caption,
-                              )
-                            ]),
-                        Column(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              !kIsWeb
-                                  ? SvgPicture.asset(
-                                      "assets/icons/new_recipe.svg",
-                                      semanticsLabel:
-                                          "assets/icons/new_recipe.svg"
-                                              .substring(12),
-                                      fit: BoxFit.contain,
-                                    )
-                                  : Align(
-                                      child: SvgAsPaint(
-                                          asset:
-                                              "assets/icons/new_recipe.svg")),
-                            ]),
-                        Column(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              !kIsWeb
-                                  ? SvgPicture.asset(
-                                      "assets/icons/book-2.svg",
-                                      semanticsLabel: "assets/icons/book-2.svg"
-                                          .substring(12),
-                                      color: Color(0xFF20CAD1),
-                                      fit: BoxFit.contain,
-                                    )
-                                  : Align(
-                                      child: SvgAsPaint(
-                                          asset: "assets/icons/book-2.svg")),
-                              SizedBox(
-                                height: 5,
-                              ),
-                              Text(
-                                "data",
-                                style: Theme.of(context).textTheme.caption,
-                              )
-                            ]),
-                        Column(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Image.asset(
-                                "assets/avatar/avatar-unsplash.png",
-                                height: 26,
-                                fit: BoxFit.contain,
-                              ),
-                              SizedBox(
-                                height: 5,
-                              ),
-                              Text(
-                                "data",
-                                style: focusTextStyle,
-                              )
-                            ]),
+                        Container(
+                          width: 53,
+                          child: Column(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                !kIsWeb
+                                    ? SvgPicture.asset(
+                                        "assets/icons/dashboard.svg",
+                                        semanticsLabel:
+                                            "assets/icons/dashboard.svg"
+                                                .substring(12),
+                                        fit: BoxFit.contain,
+                                      )
+                                    : Align(
+                                        child: SvgAsPaint(
+                                            asset:
+                                                "assets/icons/dashboard.svg")),
+                                SizedBox(
+                                  height: 5,
+                                ),
+                                Text(
+                                  "Dashboard",
+                                  style: Theme.of(context).textTheme.caption,
+                                )
+                              ]),
+                        ),
+                        Container(
+                          width: 53,
+                          child: Column(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                !kIsWeb
+                                    ? SvgPicture.asset(
+                                        "assets/icons/kettlebell.svg",
+                                        semanticsLabel:
+                                            "assets/icons/kettlebell.svg"
+                                                .substring(12),
+                                        fit: BoxFit.contain,
+                                      )
+                                    : Align(
+                                        child: SvgAsPaint(
+                                            asset:
+                                                "assets/icons/kettlebell.svg")),
+                                SizedBox(
+                                  height: 5,
+                                ),
+                                Text(
+                                  "Exercices",
+                                  style: Theme.of(context).textTheme.caption,
+                                )
+                              ]),
+                        ),
+                        Container(
+                          width: 53,
+                          child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                !kIsWeb
+                                    ? SvgPicture.asset(
+                                        "assets/icons/new_recipe.svg",
+                                        semanticsLabel:
+                                            "assets/icons/new_recipe.svg"
+                                                .substring(12),
+                                        fit: BoxFit.contain,
+                                      )
+                                    : Align(
+                                        child: SvgAsPaint(
+                                            asset:
+                                                "assets/icons/new_recipe.svg")),
+                              ]),
+                        ),
+                        Container(
+                          width: 53,
+                          child: Column(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                !kIsWeb
+                                    ? SvgPicture.asset(
+                                        "assets/icons/book-2.svg",
+                                        semanticsLabel:
+                                            "assets/icons/book-2.svg"
+                                                .substring(12),
+                                        fit: BoxFit.contain,
+                                      )
+                                    : Align(
+                                        child: SvgAsPaint(
+                                            asset: "assets/icons/book-2.svg")),
+                                SizedBox(
+                                  height: 5,
+                                ),
+                                Text(
+                                  "Recipes",
+                                  style: focusTextStyle,
+                                )
+                              ]),
+                        ),
+                        Container(
+                          width: 53,
+                          child: Column(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                Image.asset(
+                                  "assets/avatar/avatar-unsplash.png",
+                                  height: 26,
+                                  fit: BoxFit.contain,
+                                ),
+                                SizedBox(
+                                  height: 5,
+                                ),
+                                Text(
+                                  "Profile",
+                                  style: Theme.of(context).textTheme.caption,
+                                )
+                              ]),
+                        ),
                       ]),
                 )
               ]),

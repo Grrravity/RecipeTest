@@ -45,6 +45,7 @@ const TextStyle Body1 = TextStyle(
 );
 const TextStyle Body1Light = TextStyle(
     fontFamily: RomanText, fontSize: 14, color: LightTextColor, height: 1.5);
+
 const TextStyle Button = TextStyle(
   fontFamily: MainText,
   fontSize: 16,
