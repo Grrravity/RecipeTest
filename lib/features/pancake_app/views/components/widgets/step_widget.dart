@@ -5,6 +5,7 @@ class StepWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //TODO Refactor with Listview.Builder
     return Column(
       children: [
         Container(
