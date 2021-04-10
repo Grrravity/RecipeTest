@@ -23,20 +23,36 @@ jobs:
       # https://github.com/dart-lang/setup-dart/blob/main/README.md
       # - uses: dart-lang/setup-dart@v1
       - uses: dart-lang/setup-dart@9a04e6d73cca37bd455e0608d7e5092f881fd603
+      
+      # Setup the flutter environment.
+      - uses: subosito/flutter-action@v1
+        with:
+          channel: 'stable'
+    
+      # Get flutter dependencies.
+      - name: Verify flutter formatting
+        run: flutter pub get
 
-      - name: Install dependencies
+      # Check for any formatting issues in the code.
+      - name: Verify flutter formatting
+        run: flutter format --set-exit-if-changed .
+
+      # Statically analyze the Dart code for any errors.
+      - name: Flutter analyse project
+        run: flutter analyze .
+
+      # Run widget tests for our flutter project.
+      - name: Running testWidgets
+        run: flutter test
+        
+        # Get dart dependencies
+      - name: Install dart dependencies
         run: dart pub get
-
+        
       # Uncomment this step to verify the use of 'dart format' on each commit.
-      # - name: Verify formatting
-      #   run: dart format --output=none --set-exit-if-changed .
+      - name: Verify dart formatting
+        run: dart format --output=none --set-exit-if-changed .
 
       # Consider passing '--fatal-infos' for slightly stricter analysis.
-      - name: Analyze project source
+      - name: Dart analyze project source
         run: dart analyze
-
-      # Your project will need to have tests in test/ and a dependency on
-      # package:test for this step to succeed. Note that Flutter projects will
-      # want to change this to 'flutter test'.
-      - name: Run tests
-        run: dart test
