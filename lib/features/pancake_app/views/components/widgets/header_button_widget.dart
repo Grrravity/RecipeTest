@@ -11,6 +11,7 @@ class HeaderButtonWidget extends StatefulWidget {
 }
 
 class _HeaderButtonWidgetState extends State<HeaderButtonWidget> {
+  bool _isToastShown = false;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -30,14 +31,26 @@ class _HeaderButtonWidgetState extends State<HeaderButtonWidget> {
     );
   }
 
-  _onMenuPressed() {
+  _onMenuPressed() async {
+    if (_isToastShown) {
+      return;
+    }
+    _isToastShown = true;
     BlocProvider.of<PancakeBloc>(context).add(MenuPressed());
     _showSnackBar(context, "Menu is not yet implemented");
+    await Future.delayed(Duration(seconds: 2));
+    _isToastShown = false;
   }
 
-  _onBackPressed() {
+  _onBackPressed() async {
+    if (_isToastShown) {
+      return;
+    }
+    _isToastShown = true;
     BlocProvider.of<PancakeBloc>(context).add(BackPressed());
     _showSnackBar(context, "Back is not yet implemented");
+    await Future.delayed(Duration(seconds: 2));
+    _isToastShown = false;
   }
 
   _showSnackBar(BuildContext context, text) {

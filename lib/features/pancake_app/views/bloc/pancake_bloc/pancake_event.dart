@@ -14,3 +14,11 @@ class MenuPressed extends PancakeEvent {}
 class RefreshPressed extends PancakeEvent {}
 
 class ViewCreation extends PancakeEvent {}
+
+class DashboardPressed extends PancakeEvent {}
+
+class ExercicesPressed extends PancakeEvent {}
+
+class CreationPressed extends PancakeEvent {}
+
+class ProfilePressed extends PancakeEvent {}

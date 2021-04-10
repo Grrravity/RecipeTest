@@ -28,8 +28,10 @@ class PancakeBloc extends Bloc<PancakeEvent, PancakeState> {
     }
     if (event is BackPressed) {}
     if (event is MenuPressed) {}
-    if (event is RefreshPressed) {
-      yield Loaded();
-    }
+    if (event is RefreshPressed) {}
+    if (event is DashboardPressed) {}
+    if (event is ExercicesPressed) {}
+    if (event is CreationPressed) {}
+    if (event is ProfilePressed) {}
   }
 }
