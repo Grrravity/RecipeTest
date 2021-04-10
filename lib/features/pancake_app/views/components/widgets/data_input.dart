@@ -21,7 +21,7 @@ class DataInput extends StatelessWidget {
                 color: Color(0xFF20CAD1),
                 fit: BoxFit.contain,
               )
-            : SvgAsPaint(asset: asset),
+            : Align(child: SvgAsPaint(asset: asset)),
         SizedBox(height: 4),
         Row(children: [
           Text(data, style: Theme.of(context).textTheme.headline5),

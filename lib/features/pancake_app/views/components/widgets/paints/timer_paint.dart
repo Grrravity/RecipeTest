@@ -60,6 +60,8 @@ class TimerCustomPainter extends CustomPainter {
         rotation: 0,
         largeArc: false,
         clockwise: true);
+    path_0.moveTo(size.width * 0.74, size.height * 0.3281911);
+    path_0.lineTo(size.width * 0.5, size.height * 0.55);
     path_0.close();
 
     Paint paint0Stroke = Paint()
