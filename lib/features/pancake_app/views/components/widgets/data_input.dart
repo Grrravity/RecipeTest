@@ -1,5 +1,7 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:pancakeapp/features/pancake_app/views/components/widgets/svg_as_paint.dart';
 
 class DataInput extends StatelessWidget {
   final String asset, data, label;
@@ -12,13 +14,14 @@ class DataInput extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        //FIXME : SVG workaround for web
-        SvgPicture.asset(
-          asset,
-          semanticsLabel: asset.substring(12),
-          color: Color(0xFF20CAD1),
-          fit: BoxFit.contain,
-        ),
+        !kIsWeb
+            ? SvgPicture.asset(
+                asset,
+                semanticsLabel: asset.substring(12),
+                color: Color(0xFF20CAD1),
+                fit: BoxFit.contain,
+              )
+            : SvgAsPaint(asset: asset),
         SizedBox(height: 4),
         Row(children: [
           Text(data, style: Theme.of(context).textTheme.headline5),
