@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class RecipePictureWidget extends StatelessWidget {
@@ -13,7 +14,7 @@ class RecipePictureWidget extends StatelessWidget {
         image: AssetImage(
           imagePath,
         ),
-        fit: BoxFit.fitWidth,
+        fit: kIsWeb ? BoxFit.cover : BoxFit.fitWidth,
       ),
     );
   }

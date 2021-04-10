@@ -64,23 +64,13 @@ class _DetailWidgetState extends State<DetailWidget> {
                   ],
                 ),
               ),
-              Container(
-                padding: EdgeInsets.fromLTRB(45, 0, 35, 45),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    CustomSwitch(
-                      value: _enabled,
-                      onChanged: (bool val) {
-                        setState(() {
-                          _enabled = val;
-                        });
-                      },
-                    ),
-                    !_enabled ? StepWidget() : ListWidget(),
-                  ],
-                ),
+              CustomSwitch(
+                value: _enabled,
+                onChanged: (bool val) {
+                  setState(() {
+                    _enabled = val;
+                  });
+                },
               ),
             ],
           ),
