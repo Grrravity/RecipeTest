@@ -21,12 +21,13 @@ class RecipeViewState extends State<RecipeView> {
           Align(
               alignment: Alignment.topCenter,
               child: Container(
+                  width: MediaQuery.of(context).size.width,
                   child: RecipePictureWidget(
                       imagePath: 'assets/pictures/pancake.png'))),
           DraggableScrollableSheet(
-            initialChildSize: 0.62,
-            maxChildSize: 0.9,
-            minChildSize: 0.62,
+            initialChildSize: 0.65,
+            maxChildSize: 0.95,
+            minChildSize: 0.65,
             builder: (BuildContext context, myscrollController) {
               return Container(
                 child: SingleChildScrollView(
