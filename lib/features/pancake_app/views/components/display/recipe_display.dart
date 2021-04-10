@@ -1,7 +1,10 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pancakeapp/features/pancake_app/views/components/display/detail_display.dart';
 import 'package:pancakeapp/features/pancake_app/views/components/widgets/header_button_widget.dart';
 import 'package:pancakeapp/features/pancake_app/views/components/widgets/recipe_picture_widget.dart';
+import 'package:pancakeapp/features/pancake_app/views/components/widgets/svg_as_paint.dart';
 
 class RecipeView extends StatefulWidget {
   RecipeView({Key? key}) : super(key: key);
@@ -11,6 +14,11 @@ class RecipeView extends StatefulWidget {
 }
 
 class RecipeViewState extends State<RecipeView> {
+  final TextStyle focusTextStyle = TextStyle(
+    fontFamily: "SSN-Medium",
+    fontSize: 10,
+    color: Color(0xFF20CAD1),
+  );
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,6 +48,131 @@ class RecipeViewState extends State<RecipeView> {
                 padding: const EdgeInsets.fromLTRB(20, 55, 20, 0),
                 child: HeaderButtonWidget(),
               )),
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: Container(
+              height: 128,
+              child: Column(children: [
+                Container(
+                  height: 35,
+                  decoration: new BoxDecoration(
+                    gradient: new LinearGradient(colors: [
+                      Color.fromRGBO(255, 255, 255, 1),
+                      Color.fromRGBO(255, 255, 255, 0),
+                    ], begin: Alignment.bottomCenter, end: Alignment.topCenter),
+                  ),
+                ),
+                Container(
+                  height: 93,
+                  color: Colors.white,
+                  padding: EdgeInsets.only(bottom: 29),
+                  child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Column(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              !kIsWeb
+                                  ? SvgPicture.asset(
+                                      "assets/icons/dashboard.svg",
+                                      semanticsLabel:
+                                          "assets/icons/dashboard.svg"
+                                              .substring(12),
+                                      fit: BoxFit.contain,
+                                    )
+                                  : Align(
+                                      child: SvgAsPaint(
+                                          asset: "assets/icons/dashboard.svg")),
+                              SizedBox(
+                                height: 5,
+                              ),
+                              Text(
+                                "data",
+                                style: Theme.of(context).textTheme.caption,
+                              )
+                            ]),
+                        Column(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              !kIsWeb
+                                  ? SvgPicture.asset(
+                                      "assets/icons/kettlebell.svg",
+                                      semanticsLabel:
+                                          "assets/icons/kettlebell.svg"
+                                              .substring(12),
+                                      fit: BoxFit.contain,
+                                    )
+                                  : Align(
+                                      child: SvgAsPaint(
+                                          asset:
+                                              "assets/icons/kettlebell.svg")),
+                              SizedBox(
+                                height: 5,
+                              ),
+                              Text(
+                                "data",
+                                style: Theme.of(context).textTheme.caption,
+                              )
+                            ]),
+                        Column(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              !kIsWeb
+                                  ? SvgPicture.asset(
+                                      "assets/icons/new_recipe.svg",
+                                      semanticsLabel:
+                                          "assets/icons/new_recipe.svg"
+                                              .substring(12),
+                                      fit: BoxFit.contain,
+                                    )
+                                  : Align(
+                                      child: SvgAsPaint(
+                                          asset:
+                                              "assets/icons/new_recipe.svg")),
+                            ]),
+                        Column(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              !kIsWeb
+                                  ? SvgPicture.asset(
+                                      "assets/icons/book-2.svg",
+                                      semanticsLabel: "assets/icons/book-2.svg"
+                                          .substring(12),
+                                      color: Color(0xFF20CAD1),
+                                      fit: BoxFit.contain,
+                                    )
+                                  : Align(
+                                      child: SvgAsPaint(
+                                          asset: "assets/icons/book-2.svg")),
+                              SizedBox(
+                                height: 5,
+                              ),
+                              Text(
+                                "data",
+                                style: Theme.of(context).textTheme.caption,
+                              )
+                            ]),
+                        Column(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Image.asset(
+                                "assets/avatar/avatar-unsplash.png",
+                                height: 26,
+                                fit: BoxFit.contain,
+                              ),
+                              SizedBox(
+                                height: 5,
+                              ),
+                              Text(
+                                "data",
+                                style: focusTextStyle,
+                              )
+                            ]),
+                      ]),
+                )
+              ]),
+            ),
+          ),
         ],
       ),
     );

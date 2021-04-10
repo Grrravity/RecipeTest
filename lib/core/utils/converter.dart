@@ -11,6 +11,15 @@ class Converter {
       return Left(InvalidInputFailure());
     }
   }
+
+  Either<Failure, String> extractSVGName(String str) {
+    try {
+      final name = str.substring(12, str.length - 4);
+      return Right(name);
+    } on FormatException {
+      return Left(InvalidInputFailure());
+    }
+  }
 }
 
 class InvalidInputFailure extends Failure {}
