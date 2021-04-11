@@ -1,8 +1,9 @@
 import 'dart:convert';
 
 import 'package:flutter/services.dart' show rootBundle;
-import 'package:pancakeapp/core/error/exception.dart';
-import 'package:pancakeapp/features/pancake_app/data/model/recipe_model.dart';
+
+import '../../../../core/error/exception.dart';
+import '../model/recipe_model.dart';
 
 abstract class FakeApiDataSource {
   Future<Recipe> getRecipe();
@@ -10,13 +11,16 @@ abstract class FakeApiDataSource {
 
 class FakeApiDataSourceImpl implements FakeApiDataSource {
   @override
-  Future<Recipe> getRecipe() async {
-    final String jsonFile = "assets/json/fakeData.json";
-    var jsonString = await rootBundle.loadString(jsonFile);
+  Future<Recipe> getRecipe() =>
+      _getRecipeFromJsonFile("assets/json/fakeData.json");
+
+  Future<Recipe> _getRecipeFromJsonFile(String asset) async {
+    var jsonString = await rootBundle.loadString(asset);
+    await Future.delayed(Duration(seconds: 2));
     if (jsonString.isNotEmpty) {
-      return Future.value(Recipe.fromJson(json.decode(jsonString)));
+      return Recipe.fromJson(json.decode(jsonString));
     } else {
-      throw LocalException();
+      throw AssetException();
     }
   }
 }
