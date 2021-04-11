@@ -6,8 +6,14 @@ import 'package:pancakeapp/features/pancake_app/views/components/widgets/step_wi
 class SwitchableList extends StatefulWidget {
   final bool isStep;
   final ValueChanged<bool> onChanged;
+  final List<String> stepList, ingredientList;
 
-  SwitchableList({Key? key, required this.isStep, required this.onChanged})
+  SwitchableList(
+      {Key? key,
+      required this.isStep,
+      required this.onChanged,
+      required this.stepList,
+      required this.ingredientList})
       : super(key: key);
 
   @override
@@ -145,13 +151,14 @@ class _CustomSwitchState extends State<SwitchableList>
                   child: AnimatedOpacity(
                       opacity: widget.isStep ? 1.0 : 0.0,
                       duration: Duration(milliseconds: kIsWeb ? 100 : 200),
-                      child: StepWidget())),
+                      child: StepWidget(stepList: widget.stepList))),
               SlideTransition(
                   position: listOffset,
                   child: AnimatedOpacity(
                       opacity: widget.isStep ? 0.0 : 1.0,
                       duration: Duration(milliseconds: kIsWeb ? 250 : 200),
-                      child: ListWidget())),
+                      child:
+                          ListWidget(ingredientList: widget.ingredientList))),
             ])
           ],
         ),

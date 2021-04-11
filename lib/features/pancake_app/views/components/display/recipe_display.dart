@@ -1,12 +1,14 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:pancakeapp/features/pancake_app/domain/entities/recipe_data.dart';
 import 'package:pancakeapp/features/pancake_app/views/components/display/detail_display.dart';
 import 'package:pancakeapp/features/pancake_app/views/components/widgets/bottom_navigation_bar.dart';
 import 'package:pancakeapp/features/pancake_app/views/components/widgets/header_button_widget.dart';
 import 'package:pancakeapp/features/pancake_app/views/components/widgets/recipe_picture_widget.dart';
 
 class RecipeView extends StatefulWidget {
-  RecipeView({Key? key}) : super(key: key);
+  final RecipeData recipeData;
+  RecipeView({Key? key, required this.recipeData}) : super(key: key);
 
   @override
   RecipeViewState createState() => RecipeViewState();
@@ -28,11 +30,11 @@ class RecipeViewState extends State<RecipeView> {
             initialChildSize: 0.65,
             maxChildSize: 0.95,
             minChildSize: 0.65,
-            builder: (BuildContext context, myscrollController) {
+            builder: (BuildContext context, myScrollController) {
               return Container(
                 child: SingleChildScrollView(
-                  controller: myscrollController,
-                  child: DetailWidget(),
+                  controller: myScrollController,
+                  child: DetailWidget(recipeData: widget.recipeData),
                 ),
               );
             },

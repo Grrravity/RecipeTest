@@ -23,9 +23,11 @@ class PancakeLanding extends StatelessWidget {
                   return SizeError();
                 } else {
                   if (kIsWeb)
-                    return AspectRatio(aspectRatio: 4 / 3, child: RecipeView());
+                    return AspectRatio(
+                        aspectRatio: 4 / 3,
+                        child: RecipeView(recipeData: state.data));
                   else
-                    return RecipeView();
+                    return RecipeView(recipeData: state.data);
                 }
               } else {
                 BlocProvider.of<PancakeBloc>(context).add(ViewCreation());
