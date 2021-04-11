@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pancakeapp/features/pancake_app/domain/entities/recipe_data.dart';
-import 'package:pancakeapp/features/pancake_app/views/components/recipe_view.dart';
+import 'package:pancakeapp/features/pancake_app/views/components/widgets/data_input.dart';
+import 'package:pancakeapp/features/pancake_app/views/components/widgets/switchable_list.dart';
 
 class DetailWidget extends StatefulWidget {
   final RecipeData recipeData;

@@ -2,7 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pancakeapp/features/pancake_app/views/bloc/pancake_bloc/bloc.dart';
-import 'package:pancakeapp/features/pancake_app/views/components/recipe_view.dart';
+import 'package:pancakeapp/features/pancake_app/views/screens/pancake_app_view.dart';
 
 import '../../../../injection_container.dart';
 
@@ -18,8 +18,9 @@ class PancakeLanding extends StatelessWidget {
               if (state is Loading) {
                 return LoadingWidget();
               } else if (state is Loaded) {
-                if (kIsWeb && MediaQuery.of(context).size.width < 311 ||
-                    MediaQuery.of(context).size.height < 500) {
+                if (kIsWeb &&
+                    (MediaQuery.of(context).size.width < 311 ||
+                        MediaQuery.of(context).size.height < 500)) {
                   return SizeError();
                 } else {
                   if (kIsWeb)
