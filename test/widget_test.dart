@@ -6,28 +6,28 @@ void main() {
   group('Testing Switch', () {
     testWidgets('onTap, should return enabled as true',
         (WidgetTester tester) async {
-      var _enabled = false;
+      var _isStep = true;
       await tester.pumpWidget(MaterialApp(
-          home: CustomSwitch(
+          home: SwitchableList(
               key: Key("SWITCH"),
-              value: _enabled,
+              isStep: _isStep,
               onChanged: (bool val) {
-                _enabled = val;
+                _isStep = val;
               })));
       await tester.tap(find.byKey(Key("SWITCH")));
       await tester.pump(Duration(seconds: 1));
-      expect(_enabled, true);
+      expect(_isStep, false);
     });
     testWidgets(
         'onTap should return true even if tapped again during animation',
         (WidgetTester tester) async {
-      var _enabled = false;
+      var _isStep = true;
       await tester.pumpWidget(MaterialApp(
-          home: CustomSwitch(
+          home: SwitchableList(
               key: Key("SWITCH"),
-              value: _enabled,
+              isStep: _isStep,
               onChanged: (bool val) {
-                _enabled = val;
+                _isStep = val;
               })));
       await tester.tap(find.byKey(Key("SWITCH")));
 
@@ -35,16 +35,16 @@ void main() {
       await tester.tap(find.byKey(Key("SWITCH")));
 
       await tester.pump(Duration(seconds: 1));
-      expect(_enabled, true);
+      expect(_isStep, false);
     });
     testWidgets('Should find Instruction & Ingredients test widget',
         (WidgetTester tester) async {
-      var _enabled = false;
+      var _isStep = true;
       await tester.pumpWidget(MaterialApp(
-          home: CustomSwitch(
-              value: _enabled,
+          home: SwitchableList(
+              isStep: _isStep,
               onChanged: (bool val) {
-                _enabled = val;
+                _isStep = val;
               })));
       expect(find.text('Instruction'), findsOneWidget);
       expect(find.text('Ingredients'), findsOneWidget);

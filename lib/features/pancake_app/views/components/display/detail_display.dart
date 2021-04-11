@@ -9,7 +9,7 @@ class DetailWidget extends StatefulWidget {
 }
 
 class _DetailWidgetState extends State<DetailWidget> {
-  bool _enabled = false;
+  bool _enabled = true;
 
   @override
   Widget build(BuildContext context) {
@@ -65,7 +65,7 @@ class _DetailWidgetState extends State<DetailWidget> {
                 ),
               ),
               CustomSwitch(
-                value: _enabled,
+                isStep: _enabled,
                 onChanged: (bool val) {
                   setState(() {
                     _enabled = val;

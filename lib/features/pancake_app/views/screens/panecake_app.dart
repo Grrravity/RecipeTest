@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pancakeapp/features/pancake_app/views/bloc/pancake_bloc/bloc.dart';
@@ -17,7 +18,15 @@ class PancakeLanding extends StatelessWidget {
               if (state is Loading) {
                 return LoadingWidget();
               } else if (state is Loaded) {
-                return RecipeView();
+                if (kIsWeb && MediaQuery.of(context).size.width < 311 ||
+                    MediaQuery.of(context).size.height < 500) {
+                  return SizeError();
+                } else {
+                  if (kIsWeb)
+                    return AspectRatio(aspectRatio: 4 / 3, child: RecipeView());
+                  else
+                    return RecipeView();
+                }
               } else {
                 BlocProvider.of<PancakeBloc>(context).add(ViewCreation());
                 return LoadingWidget();

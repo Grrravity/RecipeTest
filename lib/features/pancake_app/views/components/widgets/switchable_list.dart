@@ -1,21 +1,22 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:pancakeapp/features/pancake_app/views/components/widgets/list_widget.dart';
 import 'package:pancakeapp/features/pancake_app/views/components/widgets/step_widget.dart';
 
-class CustomSwitch extends StatefulWidget {
-  final bool value;
+class SwitchableList extends StatefulWidget {
+  final bool isStep;
   final ValueChanged<bool> onChanged;
 
-  CustomSwitch({Key? key, required this.value, required this.onChanged})
+  SwitchableList({Key? key, required this.isStep, required this.onChanged})
       : super(key: key);
 
   @override
   _CustomSwitchState createState() => _CustomSwitchState();
 }
 
-class _CustomSwitchState extends State<CustomSwitch>
+class _CustomSwitchState extends State<SwitchableList>
     with TickerProviderStateMixin {
-  late AnimationController listController, stepController;
+  late AnimationController slideController;
   late Animation<Offset> listOffset, stepOffset;
 
   bool ended = true;
@@ -27,19 +28,20 @@ class _CustomSwitchState extends State<CustomSwitch>
 
   @override
   void initState() {
-    listController =
+    slideController =
         AnimationController(vsync: this, duration: Duration(milliseconds: 400));
 
-    listOffset = Tween<Offset>(begin: Offset(1.2, 0.0), end: Offset.zero)
-        .animate(listController);
     stepOffset = Tween<Offset>(begin: Offset.zero, end: Offset(-1.2, 0.0))
-        .animate(listController);
+        .animate(slideController);
+
+    listOffset = Tween<Offset>(begin: Offset(1.2, 0.0), end: Offset.zero)
+        .animate(slideController);
     super.initState();
   }
 
   @override
   dispose() {
-    listController.dispose(); // you need this
+    slideController.dispose(); // you need this
     super.dispose();
   }
 
@@ -47,18 +49,16 @@ class _CustomSwitchState extends State<CustomSwitch>
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        switch (listController.status) {
+        switch (slideController.status) {
           case AnimationStatus.completed:
-            //stepController.forward();
-            listController.reverse();
-            widget.value == false
+            slideController.reverse();
+            widget.isStep == false
                 ? widget.onChanged(true)
                 : widget.onChanged(false);
             break;
           case AnimationStatus.dismissed:
-            //stepController.reverse();
-            listController.forward();
-            widget.value == false
+            slideController.forward();
+            widget.isStep == false
                 ? widget.onChanged(true)
                 : widget.onChanged(false);
             break;
@@ -87,7 +87,7 @@ class _CustomSwitchState extends State<CustomSwitch>
                     padding:
                         const EdgeInsets.symmetric(horizontal: 3, vertical: 3),
                     child: AnimatedAlign(
-                      alignment: widget.value
+                      alignment: !widget.isStep
                           ? Alignment.centerRight
                           : Alignment.centerLeft,
                       duration: Duration(milliseconds: 400),
@@ -114,7 +114,7 @@ class _CustomSwitchState extends State<CustomSwitch>
                           child: Center(
                             child: Text(
                               "Instruction",
-                              style: widget.value
+                              style: !widget.isStep
                                   ? Theme.of(context).textTheme.button
                                   : focusTextStyle,
                               overflow: TextOverflow.clip,
@@ -124,7 +124,7 @@ class _CustomSwitchState extends State<CustomSwitch>
                         Expanded(
                           child: Center(
                             child: Text("Ingredients",
-                                style: !widget.value
+                                style: widget.isStep
                                     ? Theme.of(context).textTheme.button
                                     : Theme.of(context)
                                         .textTheme
@@ -140,8 +140,18 @@ class _CustomSwitchState extends State<CustomSwitch>
               ),
             ),
             Stack(children: [
-              SlideTransition(position: stepOffset, child: StepWidget()),
-              SlideTransition(position: listOffset, child: ListWidget()),
+              SlideTransition(
+                  position: stepOffset,
+                  child: AnimatedOpacity(
+                      opacity: widget.isStep ? 1.0 : 0.0,
+                      duration: Duration(milliseconds: kIsWeb ? 100 : 200),
+                      child: StepWidget())),
+              SlideTransition(
+                  position: listOffset,
+                  child: AnimatedOpacity(
+                      opacity: widget.isStep ? 0.0 : 1.0,
+                      duration: Duration(milliseconds: kIsWeb ? 250 : 200),
+                      child: ListWidget())),
             ])
           ],
         ),
