@@ -1,0 +1,21 @@
+{
+    "title": "Colorfull pancakes",
+    "data": {
+        "likes": 58,
+        "kcal": 451,
+        "mins": 19
+    },
+    "instruction": [
+        "In a large bowl, sift together the flour, baking powder, salt and sugar. Make a well in the center and pour in the milk, egg and melted butter; mix until smooth.",
+        "Heat a lightly oiled griddle or frying pan over medium-high heat. Pour or scoop the batter into the griddle, using approximately 1/4 cup for each pancake. Brow on both sides and serve hot."
+    ],
+    "ingredients": [
+        "1 ½ cups all-purposed flour",
+        "3 tablespoons butter, melted",
+        "3 ½ teaspoons baking powder",
+        "1 ¼ cups milk",
+        "1 tablespoon white sugar",
+        "1 teaspoon salt",
+        "1 egg"
+    ]
+}
