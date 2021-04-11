@@ -48,6 +48,7 @@ flutter:
   assets:
     - assets/avatar/avatar-unsplash.png
     - assets/pictures/pancake.png
+    - assets/pictures/size_error.png
     - assets/icons/book-2.svg
     - assets/icons/calories.svg
     - assets/icons/dashboard.svg
