@@ -64,7 +64,7 @@ class _DetailWidgetState extends State<DetailWidget> {
                   ],
                 ),
               ),
-              CustomSwitch(
+              SwitchableList(
                 isStep: _enabled,
                 onChanged: (bool val) {
                   setState(() {
