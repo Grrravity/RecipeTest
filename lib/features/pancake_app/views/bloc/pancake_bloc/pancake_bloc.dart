@@ -16,9 +16,10 @@ const String INVALID_DATA_FAILURE_MESSAGE =
 
 class PancakeBloc extends Bloc<PancakeEvent, PancakeState> {
   final GetRecipeData getRecipeData;
-  PancakeBloc({initialState, required GetRecipeData recipeData})
+
+  PancakeBloc({required GetRecipeData recipeData})
       : getRecipeData = recipeData,
-        super(initialState);
+        super(Creating());
 
   @override
   Stream<PancakeState> mapEventToState(
