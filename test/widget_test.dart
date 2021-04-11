@@ -15,6 +15,7 @@ void main() {
                 _enabled = val;
               })));
       await tester.tap(find.byKey(Key("SWITCH")));
+      await tester.pump(Duration(seconds: 1));
       expect(_enabled, true);
     });
     testWidgets(
@@ -29,7 +30,11 @@ void main() {
                 _enabled = val;
               })));
       await tester.tap(find.byKey(Key("SWITCH")));
+
+      await tester.pump(Duration(seconds: 1));
       await tester.tap(find.byKey(Key("SWITCH")));
+
+      await tester.pump(Duration(seconds: 1));
       expect(_enabled, true);
     });
     testWidgets('Should find Instruction & Ingredients test widget',
@@ -41,8 +46,6 @@ void main() {
               onChanged: (bool val) {
                 _enabled = val;
               })));
-      var text = find.byType(Text);
-      expect(text, findsNWidgets(2));
       expect(find.text('Instruction'), findsOneWidget);
       expect(find.text('Ingredients'), findsOneWidget);
     });

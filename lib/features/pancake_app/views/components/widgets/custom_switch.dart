@@ -38,6 +38,12 @@ class _CustomSwitchState extends State<CustomSwitch>
   }
 
   @override
+  dispose() {
+    listController.dispose(); // you need this
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
@@ -60,6 +66,7 @@ class _CustomSwitchState extends State<CustomSwitch>
         }
       },
       child: Container(
+        color: Colors.transparent,
         padding: EdgeInsets.fromLTRB(45, 0, 35, 45),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -101,18 +108,30 @@ class _CustomSwitchState extends State<CustomSwitch>
                     alignment: Alignment.center,
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      mainAxisSize: MainAxisSize.max,
                       children: [
-                        Text(
-                          "Instruction",
-                          style: widget.value
-                              ? Theme.of(context).textTheme.button
-                              : focusTextStyle,
+                        Expanded(
+                          child: Center(
+                            child: Text(
+                              "Instruction",
+                              style: widget.value
+                                  ? Theme.of(context).textTheme.button
+                                  : focusTextStyle,
+                              overflow: TextOverflow.clip,
+                            ),
+                          ),
                         ),
-                        Text(
-                          "Ingredients",
-                          style: !widget.value
-                              ? Theme.of(context).textTheme.button
-                              : focusTextStyle,
+                        Expanded(
+                          child: Center(
+                            child: Text("Ingredients",
+                                style: !widget.value
+                                    ? Theme.of(context).textTheme.button
+                                    : Theme.of(context)
+                                        .textTheme
+                                        .button!
+                                        .merge(focusTextStyle),
+                                overflow: TextOverflow.clip),
+                          ),
                         ),
                       ],
                     ),
