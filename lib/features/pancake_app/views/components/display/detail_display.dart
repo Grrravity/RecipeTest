@@ -56,11 +56,11 @@ class _DetailWidgetState extends State<DetailWidget> {
                         label: "Likes"),
                     DataInput(
                         asset: 'assets/icons/calories.svg',
-                        data: widget.recipeData.metrics.likes.toString() + " ",
+                        data: widget.recipeData.metrics.kcal.toString() + " ",
                         label: "kcal"),
                     DataInput(
                         asset: 'assets/icons/timer.svg',
-                        data: widget.recipeData.metrics.likes.toString() + " ",
+                        data: widget.recipeData.metrics.mins.toString() + " ",
                         label: "mins"),
                   ],
                 ),

@@ -6,9 +6,9 @@ class Metrics extends MetricsData {
 
   factory Metrics.fromJson(Map<String, dynamic> json) {
     return Metrics(
-      likes: json['likes'],
-      kcal: json['kcal'],
-      mins: json['mins'],
+      likes: json['likes'] ?? 0,
+      kcal: json['kcal'] ?? 0,
+      mins: json['mins'] ?? 0,
     );
   }
 

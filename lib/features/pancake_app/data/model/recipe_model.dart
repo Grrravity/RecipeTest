@@ -15,7 +15,7 @@ class Recipe extends RecipeData {
 
   factory Recipe.fromJson(Map<String, dynamic> json) {
     return Recipe(
-      title: json['title'],
+      title: json['title'] ?? "Title unknow",
       metrics: json['data'] != null ? new Metrics.fromJson(json['data']) : null,
       instruction: json['instruction'].cast<String>(),
       ingredients: json['ingredients'].cast<String>(),

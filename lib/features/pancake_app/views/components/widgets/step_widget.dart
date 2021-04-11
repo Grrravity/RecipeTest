@@ -6,26 +6,35 @@ class StepWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-        shrinkWrap: true,
-        physics: const NeverScrollableScrollPhysics(),
-        itemCount: stepList.length,
-        itemBuilder: (BuildContext context, int index) {
-          return Container(
-              padding: EdgeInsets.symmetric(vertical: 25),
-              child:
-                  Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                Padding(
-                  padding: const EdgeInsets.only(top: 5),
-                  child: Text((index + 1).toString(),
-                      style: Theme.of(context).textTheme.headline6),
-                ),
-                SizedBox(width: 13),
-                Expanded(
-                  child: Text(stepList[index],
-                      style: Theme.of(context).textTheme.bodyText2),
-                )
-              ]));
-        });
+    return stepList.isEmpty
+        ? Container(
+            padding: EdgeInsets.only(top: 45),
+            child: Center(
+              child: Text("This recipe has no instructions",
+                  style: Theme.of(context).textTheme.bodyText1),
+            ),
+          )
+        : ListView.builder(
+            shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
+            itemCount: stepList.length,
+            itemBuilder: (BuildContext context, int index) {
+              return Container(
+                  padding: EdgeInsets.symmetric(vertical: 25),
+                  child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(top: 5),
+                          child: Text((index + 1).toString(),
+                              style: Theme.of(context).textTheme.headline6),
+                        ),
+                        SizedBox(width: 13),
+                        Expanded(
+                          child: Text(stepList[index],
+                              style: Theme.of(context).textTheme.bodyText2),
+                        )
+                      ]));
+            });
   }
 }
