@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:pancakeapp/core/utils/theme.dart';
 
 import 'features/pancake_app/views/screens/panecake_app.dart';
@@ -8,7 +9,8 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   await inj.init();
-  runApp(PancakeApp());
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
+      .then((value) => runApp(PancakeApp()));
 }
 
 class PancakeApp extends StatelessWidget {
