@@ -5,8 +5,17 @@
 ---
 # PancakeApp
 
-PancakeApp is a flutter project to show how great it is to build cross plateforme apps.
+PancakeApp is a flutter project to show how great it is to build cross plateforme apps. You'll find releases here [last release](https://github.com/Grrravity/RecipeTest/releases)
 
+This project use ResoCoder's **[Clean Architecture](https://resocoder.com/2019/08/27/flutter-tdd-clean-architecture-course-1-explanation-project-structure/)**
+
+| Implementations      | status |
+| :----------- | :----:  |
+| iOS and Android support   | ✔️        |
+| Web support   | ✔️        |
+| Clean Architecture      | ✔️       |
+| Widget tests   | ✔️        |
+| Bloc tests   | 🕜        |
 
 ## Android Installation *(require at least Flutter SDK)*
 
@@ -24,6 +33,7 @@ git clone https://github.com/Grrravity/RecipeTest.git
 
 ```bash
 cd PancakeTest
+Flutter build apk --release
 Flutter install
 ```
 
@@ -41,7 +51,7 @@ git clone https://github.com/Grrravity/RecipeTest.git
 
 ```bash
 cd PancakeTest
-Flutter build ios
+Flutter build ios --release
 ```
 
 3. Now in Xcode, open Runner.xcworkspace in your RecipeTest app's ios folder
@@ -67,8 +77,10 @@ Flutter run -d chrome
 This will open a localhost of this app in your chrome browser.
 
 ## APK Installation
+* Check that your phone accept unknown source apk
 
-1. Download the apk from here (link will be added soon)
+1. Download the apk from [here](https://github.com/Grrravity/RecipeTest/releases/download/v0.0.1/app-release.apk)
 
-2. Unzip-it and past the apk in your Android's storage
-3. Then open the apk from your Android file explorer, install it and launch it.
+2. Paste the apk in your Android's storage
+
+4. Then open the apk from your Android file explorer, install it and launch it.
