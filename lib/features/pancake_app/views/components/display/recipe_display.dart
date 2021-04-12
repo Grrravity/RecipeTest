@@ -1,7 +1,10 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:pancakeapp/features/pancake_app/domain/entities/recipe_data.dart';
-import 'package:pancakeapp/features/pancake_app/views/components/recipe_view.dart';
+import 'package:pancakeapp/features/pancake_app/views/components/display/detail_display.dart';
+import 'package:pancakeapp/features/pancake_app/views/components/widgets/bottom_navigation_bar.dart';
+import 'package:pancakeapp/features/pancake_app/views/components/widgets/header_button_widget.dart';
+import 'package:pancakeapp/features/pancake_app/views/components/widgets/recipe_picture_widget.dart';
 
 class RecipeView extends StatefulWidget {
   final RecipeData recipeData;
