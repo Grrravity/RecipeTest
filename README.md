@@ -79,7 +79,7 @@ This will open a localhost of this app in your chrome browser.
 ## APK Installation
 * Check that your phone accept unknown source apk
 
-1. Download the apk from [here](https://github.com/Grrravity/RecipeTest/releases/download/v0.0.1/app-release.apk)
+1. Download the apk from [here](https://github.com/Grrravity/RecipeTest/releases)
 
 2. Paste the apk in your Android's storage
 
